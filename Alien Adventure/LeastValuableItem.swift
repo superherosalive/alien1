@@ -36,7 +36,7 @@ extension Hero {
             }
             
         }
-        
+        //return item
         return leastValueItem
     }
 }
