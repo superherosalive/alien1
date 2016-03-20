@@ -11,8 +11,9 @@ extension Hero {
     func shuffleStrings(s1 s1: String, s2: String, shuffle: String) -> Bool {
         
         var shuffled: Bool = true
+        var myArrary: [Array]()
         
-        if (s1 == "" && s2 == "" && shuffle == ""){
+        if (s1.isEmpty && s2.isEmpty && shuffle.isEmpty){
             shuffled = true
         
         } else if ( (s1.characters.count + s2.characters.count ) != shuffle.characters.count ) {
@@ -20,7 +21,10 @@ extension Hero {
         
         } else {
         
-            print(String.CharacterView.Index(s1))
+            print("\(s1.characters.count)")
+            for index in s1.characters.indices {
+                print (s1[index] )
+            }
             
             
         }
