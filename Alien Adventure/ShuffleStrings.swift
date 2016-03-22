@@ -20,27 +20,30 @@ extension Hero {
         
         } else {
         
-            var s1Index = s1.startIndex //get first index for s1
-            var s2Index = s2.startIndex //get firsrt index for s2
+            var s1idx = s1.startIndex //get first index for s1
+            var s2idx = s2.startIndex //get firsrt index for s2
             
             
-            for character in shuffle.characters {
+            for char in shuffle.characters {
                 //If not end of string of s1
-                if s1Index != s1.endIndex  {
+                if s1idx != s1.endIndex  {
                     //if first character in shuffle is found in s1
-                    if character == s1[s1Index] {
-                        //
-                        s1Index = s1Index.successor()
+                    if char == s1[s1idx] {
+                        //move to the next char
+                        s1idx = s1idx.successor()
                     }
                     
                 }
             }
 
-            
-            for character in shuffle.characters {
-                if s2Index != s2.endIndex {
-                    if character == s2[s2Index] {
-                        s2Index = s2Index.successor()
+            //loop through shuffle string
+            for char in shuffle.characters {
+                //if not end of s2 string s2
+                if s2idx != s2.endIndex {
+                    //if first character of s2 is found in shuffle
+                    if char == s2[s2idx] {
+                        //move to the next char
+                        s2idx = s2idx.successor()
                         
                     }
                     
@@ -48,8 +51,8 @@ extension Hero {
                 }
             }
         
-        
-        if s1Index == s1.endIndex && s2Index == s2.endIndex {
+        //if end of index then return true
+        if s1idx == s1.endIndex && s2idx == s2.endIndex {
             return true
         } else {
             return false
