@@ -10,27 +10,50 @@ extension Hero {
     
     func shuffleStrings(s1 s1: String, s2: String, shuffle: String) -> Bool {
         
-        var shuffled: Bool = true
-        var myArrary: [Array]()
+        
         
         if (s1.isEmpty && s2.isEmpty && shuffle.isEmpty){
-            shuffled = true
+            return true
         
         } else if ( (s1.characters.count + s2.characters.count ) != shuffle.characters.count ) {
-            shuffled = false
+            return false
         
         } else {
         
-            print("\(s1.characters.count)")
-            for index in s1.characters.indices {
-                print (s1[index] )
+            var s1Index = s1.startIndex //get first index for s1
+            var s2Index = s2.startIndex //get firsrt index for s2
+            
+            
+            for character in shuffle.characters {
+                //If not end of string of s1
+                if s1Index != s1.endIndex  {
+                    //if first character in shuffle is found in s1
+                    if character == s1[s1Index] {
+                        //
+                        s1Index = s1Index.successor()
+                    }
+                    
+                }
             }
+
             
-            
+            for character in shuffle.characters {
+                if s2Index != s2.endIndex {
+                    if character == s2[s2Index] {
+                        s2Index = s2Index.successor()
+                        
+                    }
+                    
+                    
+                }
+            }
+        
+        
+        if s1Index == s1.endIndex && s2Index == s2.endIndex {
+            return true
+        } else {
+            return false
         }
-        
-        
-        
-        return shuffled
+        }
     }
 }
